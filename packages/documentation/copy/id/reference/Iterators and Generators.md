@@ -6,16 +6,16 @@ oneline: How Iterators and Generators work in TypeScript
 translatable: true
 ---
 
-## Iterables
+## Iterasi
 
-An object is deemed iterable if it has an implementation for the [`Symbol.iterator`](Symbols.html#symboliterator) property.
-Some built-in types like `Array`, `Map`, `Set`, `String`, `Int32Array`, `Uint32Array`, etc. have their `Symbol.iterator` property already implemented.
-`Symbol.iterator` function on an object is responsible for returning the list of values to iterate on.
+Sebuah objek dapat dilakukan perulangan jika memiliki poperty [`Symbol.iterator`](Symbols.html#symboliterator).
+Beberapa type bawaan seperti `Array`, `Map`, `Set`, `String`, `Int32Array`, `Uint32Array`, etc. sudah memiliki property `Symbol.iterator`.
+Fungsi `Symbol.iterator` pada sebuah objek, bertanggungjawab untuk mengembalikan list nilai-nilai untuk menjalankan iterasi.
 
-## `for..of` statements
+## Pernyataan `for..of`
 
-`for..of` loops over an iterable object, invoking the `Symbol.iterator` property on the object.
-Here is a simple `for..of` loop on an array:
+`for..of` mengulang objek yang dapat diulang dengan cara memanggil properti `Symbol.iterator` pada objek tersebut.
+Berikut ini loop `for..of` sederhana pada sebuah array:
 
 ```ts
 let someArray = [1, "string", false];
@@ -25,11 +25,11 @@ for (let entry of someArray) {
 }
 ```
 
-### `for..of` vs. `for..in` statements
+### Pernyataan `for..of` vs `for..in`
 
-Both `for..of` and `for..in` statements iterate over lists; the values iterated on are different though, `for..in` returns a list of _keys_ on the object being iterated, whereas `for..of` returns a list of _values_ of the numeric properties of the object being iterated.
+Baik pernyataan `for..of` dan `for..in` akan mengiterasi list; yang membedakan antara keduanya adalah `for..in` akan mengembalikan daftar _keys_ dari objek tersebut, sedangkan `for..of` mengembalikan daftar _values_ property numeric dari objek yang diiterasi.
 
-Here is an example that demonstrates this distinction:
+Berikut adalah contoh implementasi dari perbedaan keduanya:
 
 ```ts
 let list = [4, 5, 6];
@@ -43,8 +43,8 @@ for (let i of list) {
 }
 ```
 
-Another distinction is that `for..in` operates on any object; it serves as a way to inspect properties on this object.
-`for..of` on the other hand, is mainly interested in values of iterable objects. Built-in objects like `Map` and `Set` implement `Symbol.iterator` property allowing access to stored values.
+Perbedaan lainnya adalah `for..in` bekerja pada objek apapun; ini berfungsi sebagai cara untuk memeriksa properti pada objek tersebut.
+Di sisi lain, `for..of` tertarik pada nilai dari objek yang dapat diulang. Objek bawaan seperti `Map` dan`Set` mengimplementasikan properti `Symbol.iterator` yang memungkinkan akses ke nilai yang disimpan.
 
 ```ts
 let pets = new Set(["Cat", "Dog", "Hamster"]);
@@ -59,14 +59,14 @@ for (let pet of pets) {
 }
 ```
 
-### Code generation
+### Pembuatan kode
 
-#### Targeting ES5 and ES3
+#### Menargetkan ES5 dan ES3
 
-When targeting an ES5 or ES3-compliant engine, iterators are only allowed on values of `Array` type.
-It is an error to use `for..of` loops on non-Array values, even if these non-Array values implement the `Symbol.iterator` property.
+Ketika menargetkan ke engine ES5 atau ES3, iterator hanya membolehkan nilai bertipe `Array`.
+Akan terjadi error jika `for..of` melakukan perulangan pada nilai yang bukan Array, bahkan jika nilai non Array tersebut memiliki property `Symbol.iterator`.
 
-The compiler will generate a simple `for` loop for a `for..of` loop, for instance:
+Compiler akan menghasilkan perulangan `for` sederhana untuk `for..of`, misalnya:
 
 ```ts
 let numbers = [1, 2, 3];
@@ -75,7 +75,7 @@ for (let num of numbers) {
 }
 ```
 
-will be generated as:
+akan menghasilkan:
 
 ```js
 var numbers = [1, 2, 3];
@@ -85,6 +85,6 @@ for (var _i = 0; _i < numbers.length; _i++) {
 }
 ```
 
-#### Targeting ECMAScript 2015 and higher
+#### Menargetkan ECMAScript 2015 dan yang lebih tinggi
 
-When targeting an ECMAScipt 2015-compliant engine, the compiler will generate `for..of` loops to target the built-in iterator implementation in the engine.
+Ketika menargetkan ke engine ECMAScript 2015, compiler akan membuat perulangan `for..of` untuk menargetkan implementasi iterator bawaan di mesin.
