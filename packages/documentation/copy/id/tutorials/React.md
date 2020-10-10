@@ -6,21 +6,21 @@ oneline: Links to learn about TypeScript and React
 translatable: true
 ---
 
-TypeScript supports [JSX](/docs/handbook/jsx.html) and can correctly model the patterns used in React codebases like `useState`.
+Typescript mendukung [JSX](/docs/handbook/jsx.html) dan dapat dengan baik memodelkan pola untuk digunakan pada kode React, seperti `useState`.
 
-### Getting Set Up With a React Project
+### Memulai Set Up Dengan Proyek React
 
-Today there are many frameworks which support TypeScript out of the box:
+Saat ini ada beberapa framework yang mendukung Typescript:
 
 - [Create React App](https://create-react-app.dev) - [TS docs](https://create-react-app.dev/docs/adding-typescript/)
 - [Next.js](https://nextjs.org) - [TS docs](https://nextjs.org/learn/excel/typescript)
 - [Gatsby](https://www.gatsbyjs.org) - [TS Docs](https://www.gatsbyjs.org/docs/typescript/)
 
-All of these are great starting points. We [use Gatsby](https://www.gatsbyjs.org/blog/2020-01-23-why-typescript-chose-gatsby/#reach-skip-nav) with TypeScript for [this website](https://github.com/microsoft/TypeScript-Website/), so that can also be a useful reference implementation.
+Framework diatas adalah titik awal yang bagus untuk mulai menggunakan Typescript. Pada situs ini, kami [menggunakan Gatsby](https://www.gatsbyjs.org/blog/2020-01-23-why-typescript-chose-gatsby/#reach-skip-nav) dengan TypeScript. Sehingga dapat digunakan sebagai referensi untuk implementasinya.
 
-### Documentation
+### Dokumentasi
 
-Here are some of the best places to find up-to-date information on React and TypeScript:
+Berikut adalah beberapa tempat terbaik untuk menemukan informasi terbaru tentang React dan TypeScript:
 
 - [React TypeScript Cheatsheets](https://react-typescript-cheatsheet.netlify.app)
 - [React & Redux in TypeScript](https://github.com/piotrwitek/react-redux-typescript-guide#react--redux-in-typescript---complete-guide)
