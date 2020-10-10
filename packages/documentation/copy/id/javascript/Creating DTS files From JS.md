@@ -6,29 +6,28 @@ oneline: "How to add d.ts generation to JavaScript projects"
 translatable: true
 ---
 
-[With TypeScript 3.7](/docs/handbook/release-notes/typescript-3-7.html#--declaration-and---allowjs),
-TypeScript added support for generating .d.ts files from JavaScript using JSDoc syntax.
+[Dengan Typescript 3.7](/docs/handbook/release-notes/typescript-3-7.html#--declaration-and---allowjs), Typescript menambahkan dukungan untuk menghasilkan file .d.ts dari Javascript menggunakan sintaks JSDoc.
 
-This set up means you can own the editor experience of TypeScript-powered editors without porting your project to TypeScript, or having to maintain .d.ts files in your codebase.
-TypeScript supports most JSDoc tags, you can find [the reference here](/docs/handbook/type-checking-javascript-files.html#supported-jsdoc).
+Pengaturan ini berarti Anda memiliki editor yang mendukung Typescript tanpa memindahkan proyek anda ke Typescript, atau harus memelihara file .d.ts di basis kodemu.
+TypeScript mendukung sebagian besar tag JSDoc, Anda bisa menemukannya [di referensi ini](/docs/handbook/type-checking-javascript-files.html#supported-jsdoc).
 
-## Setting up your Project to emit .d.ts files
+## Menyiapkan proyekmu untuk menggunakan file .d.ts
 
-To add creation of .d.ts files in your project, you will need to do up-to four steps:
+Untuk menambahkan pembuatan file .d.ts di proyekmu, Anda perlu melakukan hingga empat langkah:
 
-- Add TypeScript to your dev dependencies
-- Add a `tsconfig.json` to configure TypeScript
-- Run the TypeScript compiler to generate the corresponding d.ts files for JS files
-- (optional) Edit your package.json to reference the types
+- Tambahkan TypeScript ke dependensi dev Anda
+- Tambahkan `tsconfig.json` untuk mengkonfigurasi TypeScript
+- Jalankan compiler TypeScript untuk menghasilkan file d.ts yang sesuai untuk file JS
+- (opsional) Edit package.json Anda untuk mereferensikan tipe
 
-### Adding TypeScript
+### Menambahkan TypeScript
 
-You can learn how to do this in our [installation page](/download).
+Anda bisa mempelajari cara melakukan ini di [halaman instalasi](/download) kami.
 
 ### TSConfig
 
-The TSConfig is a jsonc file which configures both your compiler flags, and declare where to find files.
-In this case, you will want a file like the following:
+TSConfig adalah file jsonc yang mengkonfigurasi kedua flag compiler Anda, dan menyatakan di mana mencari file.
+Dalam kasus ini, Anda menginginkan file seperti berikut:
 
 ```json5
 {
@@ -52,22 +51,22 @@ In this case, you will want a file like the following:
 }
 ```
 
-You can learn more about the options in the [tsconfig reference](/reference).
-An alternative to using a TSConfig file is the CLI, this is the same behavior as a CLI command.
+Anda dapat mempelajari lebih lanjut tentang opsi di [referensi tsconfig](/reference).
+Alternatif untuk menggunakan file TSConfig adalah CLI, ini adalah perilaku yang sama seperti perintah CLI.
 
 ```sh
 npx typescript src/**/*.js --declaration --allowJs --emitDeclarationOnly --outDir types
 ```
 
-## Run the compiler
+## Menjalankan compiler
 
-You can learn how to do this in our [installation page](/download).
-You want to make sure these files are included in your package if you have the files in your project's `.gitignore`.
+Anda bisa mempelajari bagaimana melakukan ini di [halaman pemasangan](/download) Typescript kami.
+Anda perlu memastikan file-file ini disertakan dalam package Anda jika Anda memiliki file dalam `gitignore` proyek Anda.
 
-## Editing the package.json
+## Meng-edit file package.json
 
-TypeScript replicates the node resolution for modules in a `package.json`, with an additional step for finding .d.ts files.
-Roughly, the resolution will first check the optional `"types"` field, then the `"main"` field, and finally will try `index.d.ts` in the root.
+TypeScript mereplikasi resolusi node untuk modul di `package.json`, dengan langkah tambahan untuk menemukan file .d.ts.
+Secara kasar, resolusi pertama-tama akan memeriksa bidang `"types"` opsional, kemudian bidang `"main"`, dan terakhir akan mencoba `index.d.ts` di root.
 
 | Package.json              | Location of default .d.ts      |
 | :------------------------ | :----------------------------- |
@@ -75,7 +74,7 @@ Roughly, the resolution will first check the optional `"types"` field, then the 
 | "types": "main.d.ts"      | main.d.ts                      |
 | "types": "./dist/main.js" | ./main/main.d.ts               |
 
-If absent, then "main" is used
+Jika tidak ada, maka "main" akan digunakan
 
 | Package.json             | Location of default .d.ts |
 | :----------------------- | :------------------------ |
@@ -85,4 +84,4 @@ If absent, then "main" is used
 
 ## Tips
 
-If you'd like to write tests for your .d.ts files, try [tsd](https://github.com/SamVerschueren/tsd).
+Jika kamu suka menulis tes untuk file .d.ts, coba [tsd](https://github.com/SamVerschueren/tsd).
