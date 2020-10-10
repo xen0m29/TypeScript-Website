@@ -6,16 +6,16 @@ oneline: Using the mixin pattern with TypeScript
 translatable: true
 ---
 
-Along with traditional OO hierarchies, another popular way of building up classes from reusable components is to build them by combining simpler partial classes.
-You may be familiar with the idea of mixins or traits for languages like Scala, and the pattern has also reached some popularity in the JavaScript community.
+Bersamaan dengan hierarki OO tradisional, cara populer lainnya untuk membangun kelas dari komponen yang dapat digunakan kembali adalah membangunnya dengan menggabungkan kelas parsial yang lebih sederhana.
+Anda mungkin sudah familiar dengan ide mixin atau ciri untuk bahasa seperti Scala, dan polanya juga mendapatkan popularitas di komunitas JavaScript.
 
-## How Does A Mixin Work?
+## Bagaimana Cara Kerja Mixin?
 
-The pattern relies on using Generics with class inheritance to extend a base class.
-TypeScript's best mixin support is done via the class expression pattern.
-You can read more about how this pattern works in [JavaScript here](https://justinfagnani.com/2015/12/21/real-mixins-with-javascript-classes/).
+Pola ini bergantung pada penggunaan Generik dengan warisan kelas untuk memperluas kelas dasar.
+Dukungan mixin terbaik TypeScript dilakukan melalui pola ekspresi kelas.
+Anda dapat membaca lebih lanjut mengenai bagaimana pola ini bekerja di [Javscript disini](https://justinfagnani.com/2015/12/21/real-mixins-with-javascript-classes/).
 
-To get started, we'll need a class which will have the mixin's applied on top of:
+Untuk memulai, kita akan butuh kelas yang akan diterapkan mixin:
 
 ```ts twoslash
 class Sprite {
@@ -29,22 +29,21 @@ class Sprite {
 }
 ```
 
-Then you need a type and a factory function which returns a class expression extending the base class.
+Kemudian kamu butuh sebuah type dan sebuah fungsi factory yang mengembalikan sebuah ekspresi kelas untuk meng-extend kelas dasar.
 
 ```ts twoslash
-// To get started, we need a type which we'll use to extend
-// other classes from. The main responsibility is to declare
-// that the type being passed in is a class.
+// Untuk memulai, kita membutuhkan tipe yang akan kita gunakan untuk memperluas kelas lain.
+// Tanggung jawab utama adalah mendeklarasikan bahwa tipe yang diteruskan adalah sebuah kelas.
 
 type Constructor = new (...args: any[]) => {};
 
-// This mixin adds a scale property, with getters and setters
-// for changing it with an encapsulated private property:
+// Mixin ini menambahkan property scale, dengan getter dan setter
+// untuk mengubahnya dengan properti private yang dienkapsulasi:
 
 function Scale<TBase extends Constructor>(Base: TBase) {
   return class Scaling extends Base {
-    // Mixins may not declare private/protected properties
-    // however, you can use ES2020 private fields
+    // Mixin mungkin tidak mendeklarasikan property private/protected
+    // namun, Anda dapat menggunakan field private ES2020
     _scale = 1;
 
     setScale(scale: number) {
@@ -58,7 +57,7 @@ function Scale<TBase extends Constructor>(Base: TBase) {
 }
 ```
 
-With these all set up, then you can create a class which represents the base class with mixins applied:
+Setelah hal-hal diatas siap, Anda dapat membuat kelas yang mewakili kelas dasar dengan mixin yang diterapkan:
 
 ```ts twoslash
 class Sprite {
@@ -73,8 +72,8 @@ class Sprite {
 type Constructor = new (...args: any[]) => {};
 function Scale<TBase extends Constructor>(Base: TBase) {
   return class Scaling extends Base {
-    // Mixins may not declare private/protected properties
-    // however, you can use ES2020 private fields
+    // Mixin mungkin tidak mendeklarasikan property private/protected
+    // namun, Anda dapat menggunakan field private ES2020
     _scale = 1;
 
     setScale(scale: number) {
@@ -86,9 +85,9 @@ function Scale<TBase extends Constructor>(Base: TBase) {
     }
   };
 }
-// ---cut---
-// Compose a new class from the Sprite class,
-// with the Mixin Scale applier:
+// ---potong---
+// Buat kelas baru dari kelas Sprite,
+// dengan Mixin Scale:
 const EightBitSprite = Scale(Sprite);
 
 const flappySprite = new EightBitSprite("Bird");
@@ -96,21 +95,21 @@ flappySprite.setScale(0.8);
 console.log(flappySprite.scale);
 ```
 
-## Constrained Mixins
+## Mixin yang Dibatasi
 
-In the above form, the mixin's have no underlying knowledge of the class which can make it hard to create the design you want.
+Dalam bentuk di atas, mixin tidak memiliki pengetahuan yang mendasari kelas yang dapat menyulitkan pembuatan desain yang diinginkan.
 
-To model this, we modify the original constructor type to accept a generic argument.
+Untuk memodelkan ini, kami memodifikasi tipe konstruktor asli untuk menerima argumen generic.
 
 ```ts twoslash
-// This was our previous constructor:
+// Ini adalah konstruktor kita sebelumnya:
 type Constructor = new (...args: any[]) => {};
-// Now we use a generic version which can apply a constraint on
-// the class which this mixin is applied to
+// Sekarang kami menggunakan versi generik yang dapat menerapkan batasan
+// pada kelas tempat mixin ini diterapkan
 type GConstructor<T = {}> = new (...args: any[]) => T;
 ```
 
-This allows for creating classes which only work with constrained base classes:
+Ini memungkinkan untuk membuat kelas yang hanya bekerja dengan kelas dasar yang dibatasi:
 
 ```ts twoslash
 type GConstructor<T = {}> = new (...args: any[]) => T;
@@ -123,13 +122,13 @@ class Sprite {
     this.name = name;
   }
 }
-// ---cut---
+// ---potong---
 type Positionable = GConstructor<{ setPos: (x: number, y: number) => void }>;
 type Spritable = GConstructor<typeof Sprite>;
 type Loggable = GConstructor<{ print: () => void }>;
 ```
 
-Then you can create mixins which only work when you have a particular base to build on:
+Kemudian Anda dapat membuat mixin yang hanya berfungsi jika Anda memiliki basis tertentu untuk dibangun:
 
 ```ts twoslash
 type GConstructor<T = {}> = new (...args: any[]) => T;
@@ -145,27 +144,27 @@ class Sprite {
 type Positionable = GConstructor<{ setPos: (x: number, y: number) => void }>;
 type Spritable = GConstructor<typeof Sprite>;
 type Loggable = GConstructor<{ print: () => void }>;
-// ---cut---
+// ---potong---
 
 function Jumpable<TBase extends Positionable>(Base: TBase) {
   return class Jumpable extends Base {
     jump() {
-      // This mixin will only work if it is passed a base
-      // class which has setPos defined because of the
-      // Positionable constraint.
+      // Mixin ini hanya akan berfungsi jika itu melewati kelas dasar
+      // yang telah ditetapkan setPos
+      // karena kendala Positionable.
       this.setPos(0, 20);
     }
   };
 }
 ```
 
-## Alternative Pattern
+## Pola Alternatif
 
-Previous versions of this document recommended a way to write mixins where you created both the runtime and type hierarchies separately, then merged them at the end:
+Versi sebelumnya dari dokumen ini merekomendasikan cara untuk menulis mixin di mana Anda membuat runtime dan hierarki type secara terpisah, lalu menggabungkannya di akhir:
 
 ```ts twoslash
 // @strict: false
-// Each mixin is a traditional ES class
+// Setiap mixin adalah kelas ES tradisional
 class Jumpable {
   jump() {}
 }
@@ -174,24 +173,24 @@ class Duckable {
   duck() {}
 }
 
-// Including the base
+// Termasuk basisnya
 class Sprite {
   x = 0;
   y = 0;
 }
 
-// Then you create an interface which merges
-// the expected mixins with the same name as your base
+// Kemudian Anda membuat antarmuka yang menggabungkan mixin
+// yang diharapkan dengan nama yang sama sebagai basis Anda
 interface Sprite extends Jumpable, Duckable {}
-// Apply the mixins into the base class via
-// the JS at runtime
+// Terapkan mixin ke dalam kelas dasar melalui
+// JS saat runtime
 applyMixins(Sprite, [Jumpable, Duckable]);
 
 let player = new Sprite();
 player.jump();
 console.log(player.x, player.y);
 
-// This can live anywhere in your codebase:
+// Ini dapat hidup di mana saja di basis kode Anda:
 function applyMixins(derivedCtor: any, constructors: any[]) {
   constructors.forEach((baseCtor) => {
     Object.getOwnPropertyNames(baseCtor.prototype).forEach((name) => {
@@ -205,21 +204,21 @@ function applyMixins(derivedCtor: any, constructors: any[]) {
 }
 ```
 
-This pattern relies less on the compiler, and more on your codebase to ensure both runtime and type-system are correctly kept in sync.
+Pola ini tidak terlalu bergantung pada compiler, dan lebih banyak pada basis kode Anda untuk memastikan runtime dan sistem tipe tetap sinkron dengan benar.
 
-## Constraints
+## Kendala
 
-The mixin pattern is supported natively inside the TypeScript compiler by code flow analysis.
-There are a few cases where you can hit the edges of the native support.
+Pola mixin didukung secara native di dalam compiler TypeScript oleh code flow analysis.
+Ada beberapa kasus di mana Anda dapat mencapai tepi dukungan native.
 
-#### Decorators and Mixins [`#4881`](https://github.com/microsoft/TypeScript/issues/4881)
+#### Decorator dan Mixin [`#4881`](https://github.com/microsoft/TypeScript/issues/4881)
 
-You cannot use decorators to provide mixins via code flow analysis:
+Anda tidak bisa menggunakan decorator untuk menyediakan mixin melalui code flow analysis:
 
 ```ts twoslash
 // @experimentalDecorators
 // @errors: 2339
-// A decorator function which replicates the mixin pattern:
+// Fungsi dekorator yang mereplikasi pola mixin:
 const Pausable = (target: typeof Player) => {
   return class Pausable extends target {
     shouldFreeze = false;
@@ -232,12 +231,12 @@ class Player {
   y = 0;
 }
 
-// The Player class does not have the decorator's type merged:
+// Kelas Player tidak menggabungkan type dekorator:
 const player = new Player();
 player.shouldFreeze;
 
-// It the runtime aspect could be manually replicated via
-// type composition or interface merging.
+// Aspek runtime ini dapat direplikasi secara manual
+// melalui komposisi tipe atau penggabungan interface.
 type FreezablePlayer = typeof Player & { shouldFreeze: boolean };
 
 const playerTwo = (new Player() as unknown) as FreezablePlayer;
@@ -246,10 +245,9 @@ playerTwo.shouldFreeze;
 
 #### Static Property Mixins [`#17829`](https://github.com/microsoft/TypeScript/issues/17829)
 
-More of a gotcha than a constraint.
-The class expression pattern creates singletons, so they can't be mapped at the type system to support different variable types.
+Pola ekspresi kelas membuat singletons, jadi mereka tidak dapat dipetakan pada sistem type untuk mendukung tipe variabel yang berbeda.
 
-You can work around this by using functions to return your classes which differ based on a generic:
+Anda bisa mengatasinya dengan menggunakan fungsi untuk mengembalikan kelas Anda yang berbeda berdasarkan generik:
 
 ```ts twoslash
 function base<T>() {
