@@ -6,27 +6,27 @@ oneline: A tutorial to understand how to create a small website with TypeScript
 translatable: true
 ---
 
-Let's get started by building a simple web application with TypeScript.
+Mulai membangun aplikasi web sederhana dengan Typescript.
 
-## Installing TypeScript
+## Memasang Typescript
 
-There are two main ways to get the TypeScript available for your project:
+Berikut adalah 2 cara agar Typescript ada pada proyekmu:
 
-- Via npm (the Node.js package manager)
-- By installing TypeScript's Visual Studio plugins
+- Melalui npm (package manager dari Node.js)
+- Dengan memasang plugin Visual Studio TypeScript
 
-Visual Studio 2017 and Visual Studio 2015 Update 3 include TypeScript by default.
-If you didn't install TypeScript with Visual Studio, you can still [download it](/download).
+Standar dari Visual Studio 2017 dan Visual Studio 2015 Update 3 telah menyertakan Typescript.
+Jika anda belum memasang Typescript dengan Visual Studio, anda masih bisa [mengunduhnya disini](/download).
 
-For npm users:
+Untuk pengguna npm:
 
 ```shell
 > npm install -g typescript
 ```
 
-## Building your first TypeScript file
+## Membangun file TypeScript pertamamu
 
-In your editor, type the following JavaScript code in `greeter.ts`:
+Di editormu, ketik kode Javascript berikut pada file `greeter.ts`:
 
 ```ts twoslash
 // @noImplicitAny: false
@@ -39,22 +39,22 @@ let user = "Jane User";
 document.body.textContent = greeter(user);
 ```
 
-## Compiling your code
+## Mengkompilasi kodemu
 
-We used a `.ts` extension, but this code is just JavaScript.
-You could have copy/pasted this straight out of an existing JavaScript app.
+Kita menggunakan ekstensi `.ts`, tapi kode ini hanyalah Javascript.
+Anda dapat menyalin/menempel ini langsung dari aplikasi JavaScript yang ada.
 
-At the command line, run the TypeScript compiler:
+Di command line, jalankan Typescript compiler:
 
 ```shell
 tsc greeter.ts
 ```
 
-The result will be a file `greeter.js` which contains the same JavaScript that you fed in.
-We're up and running using TypeScript in our JavaScript app!
+Hasilnya akan menjadi file `greeter.js` yang berisi Javascript yang sama dengan yang anda masukkan.
+Kodenya telah berhasil menjalankannya menggunakan TypeScript di aplikasi JavaScript!
 
-Now we can start taking advantage of some of the new tools TypeScript offers.
-Add a `: string` type annotation to the 'person' function argument as shown here:
+Sekarang kita bisa melangkah lebih jauh tentang tool yang ditawarkan oleh Typescript.
+Tambahkan sebuah jenis anotasi `: string` ke argumen 'person' pada fungsi `greeter`, seperti berikut:
 
 ```ts twoslash
 function greeter(person: string) {
@@ -66,11 +66,11 @@ let user = "Jane User";
 document.body.textContent = greeter(user);
 ```
 
-## Type annotations
+## Jenis Anotasi
 
-Type annotations in TypeScript are lightweight ways to record the intended contract of the function or variable.
-In this case, we intend the greeter function to be called with a single string parameter.
-We can try changing the call greeter to pass an array instead:
+Jenis anotasi di TypeScript adalah cara yang mudah untuk mengetahui bagaimana fungsi atau variabel tersebut yang dimaksudkan.
+Dalam kasus ini, kami bermaksud agar fungsi greeter dipanggil dengan parameter string tunggal.
+Kita dapat mencoba mengubah pemanggilan fungsi greeter untuk mengirimkan array sebagai gantinya:
 
 ```ts twoslash
 // @errors: 2345
@@ -83,24 +83,24 @@ let user = [0, 1, 2];
 document.body.textContent = greeter(user);
 ```
 
-Re-compiling, you'll now see an error:
+Compile ulang, dan anda akan melihat error berikut:
 
 ```shell
 error TS2345: Argument of type 'number[]' is not assignable to parameter of type 'string'.
 ```
 
-Similarly, try removing all the arguments to the greeter call.
-TypeScript will let you know that you have called this function with an unexpected number of parameters.
-In both cases, TypeScript can offer static analysis based on both the structure of your code, and the type annotations you provide.
+Demikian pula, coba hapus semua argumen saat pemanggilan fungsi greeter.
+TypeScript akan memberi tahu Anda bahwa Anda telah memanggil fungsi ini dengan jumlah parameter yang tidak terduga.
+Dalam kedua kasus, TypeScript dapat menawarkan analisis statis berdasarkan struktur kode Anda, dan jenis anotasi yang Anda berikan.
 
-Notice that although there were errors, the `greeter.js` file is still created.
-You can use TypeScript even if there are errors in your code. But in this case, TypeScript is warning that your code will likely not run as expected.
+Perhatikan ketika terjadi error, file `greeter.js` tetap dibuat.
+Anda bisa menggunakan Typescript bahkan jika terjadi error pada kodemu. Tapi pada kasus ini, Typescript memperingatkan bahwa kodemu akan bekerja tidak sesuai dengan ekspektasi.
 
 ## Interfaces
 
-Let's develop our sample further. Here we use an interface that describes objects that have a firstName and lastName field.
-In TypeScript, two types are compatible if their internal structure is compatible.
-This allows us to implement an interface just by having the shape the interface requires, without an explicit `implements` clause.
+Mari kembangkan sampel kita lebih jauh. Di sini kami menggunakan interface yang mendeskripsikan objek yang memiliki field firstName dan lastName.
+Di TypeScript, dua jenis anotasi akan kompatibel jika struktur internalnya juga kompatibel.
+Ini membolehkan kita untuk mengimplementasikan sebuah interface hanya dengan memiliki bentuk interface yang dibutuhkan, tanpa klausa `implements` yang eksplisit.
 
 ```ts twoslash
 interface Person {
@@ -117,15 +117,15 @@ let user = { firstName: "Jane", lastName: "User" };
 document.body.textContent = greeter(user);
 ```
 
-## Classes
+## Kelas
 
-Finally, let's extend the example one last time with classes.
-TypeScript supports new features in JavaScript, like support for class-based object-oriented programming.
+Terakhir, mari menambahkan penggunaan kelas pada contoh yang sedang kita kerjakan.
+Typescript mendukung fitur baru di Javascript, seperti dukungan untuk kelas berbasiskan pemrograman objek.
 
-Here we're going to create a `Student` class with a constructor and a few public fields.
-Notice that classes and interfaces play well together, letting the programmer decide on the right level of abstraction.
+Disini kita mulai dengan membuat kelas `Student` dengan konstruktor dan beberapa field publik.
+Perhatikan bahwa kelas dan interface saling bersinergi, sehingga memberikan kebebasan ke programmer untuk memutuskan level abstraksi yang tepat.
 
-Also of note, the use of `public` on arguments to the constructor is a shorthand that allows us to automatically create properties with that name.
+Juga perlu perhatikan, pernggunaan `public` pada argumen di konstruktor adalah singkatan yang membolehkan kita untuk secara otomatis membuat property dengan nama tersebut.
 
 ```ts twoslash
 class Student {
@@ -153,12 +153,12 @@ let user = new Student("Jane", "M.", "User");
 document.body.textContent = greeter(user);
 ```
 
-Re-run `tsc greeter.ts` and you'll see the generated JavaScript is the same as the earlier code.
-Classes in TypeScript are just a shorthand for the same prototype-based OO that is frequently used in JavaScript.
+Jalankan ulang perintah `tsc greeter.ts` dan anda akan melihat kode Javascript-nya.
+Kelas pada Typescript hanyalah singkatan untuk object-oriented berbasiskan prototipe yang sama, yang sering digunakan di Javascript.
 
-## Running your TypeScript web app
+## Menjalankan aplikasi web Typescript-mu
 
-Now type the following in `greeter.html`:
+Sekarang ketik kode berikut di `greeter.html`:
 
 ```html
 <!DOCTYPE html>
@@ -172,16 +172,16 @@ Now type the following in `greeter.html`:
 </html>
 ```
 
-Open `greeter.html` in the browser to run your first simple TypeScript web application!
+Buka `greeter.html` di browser untuk menjalankan aplikasi web Typescript-mu yang pertama!
 
-Optional: Open `greeter.ts` in Visual Studio, or copy the code into the TypeScript playground.
-You can hover over identifiers to see their types.
-Notice that in some cases these types are inferred automatically for you.
-Re-type the last line, and see completion lists and parameter help based on the types of the DOM elements.
-Put your cursor on the reference to the greeter function, and hit F12 to go to its definition.
-Notice, too, that you can right-click on a symbol and use refactoring to rename it.
+Opsional: Buka `greeter.ts` di Visual Studio, atau salin kode ke Typescript playground.
+Anda dapat mengarahkan kursor ke identifier untuk melihat type mereka.
+Perhatikan bahwa dalam beberapa kasus, tipe ini disimpulkan secara otomatis untuk Anda.
+Ketik ulang baris terakhir, dan lihat daftar penyelesaian dan bantuan parameter berdasarkan jenis elemen DOM.
+Letakkan kursor Anda pada referensi ke fungsi greeter, dan tekan F12 untuk masuk ke definisinya.
+Perhatikan juga bahwa Anda dapat mengklik kanan pada simbol dan menggunakan refactoring untuk mengganti namanya.
 
-The type information provided works together with the tools to work with JavaScript at application scale.
-For more examples of what's possible in TypeScript, see the Samples section of the website.
+Jenis informasi yang disediakan bekerja sama dengan tool untuk memudahkan pekerjaan dengan aplikasi Javascript.
+Untuk informasi lebih lanjut tentang apa yang mungkin kita bisa lakukan dengan TypeScript, anda dapat melihat beberapa sample di situs ini.
 
 ![Visual Studio picture](/images/docs/greet_person.png)
