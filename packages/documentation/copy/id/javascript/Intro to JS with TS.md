@@ -6,26 +6,26 @@ oneline: How to add type checking to JavaScript files using TypeScript
 translatable: true
 ---
 
-The type system in TypeScript has different levels of strictness when working with a codebase:
+Sistem tipe di TypeScript memiliki tingkat keketatan yang berbeda saat bekerja dengan basis kode:
 
-- A type-system based only on inference with JavaScript code
-- Incremental typing in JavaScript [via JSDoc](/docs/handbook/jsdoc-supported-types.html)
-- Using `// @ts-check` in a JavaScript file
-- TypeScript code
-- TypeScript with [`strict`](/tsconfig#strict) enabled
+- Sistem tipe yang hanya berdasarkan pada inferensi dengan kode JavaScript
+- Pengetikkan incremental di JavaScript [melalui JSDoc](/docs/handbook/jsdoc-supported-types.html)
+- Menggunakan `// @ts-check` di file JavaScript
+- Kode TypeScript
+- TypeScript dengan [`strict`](/tsconfig#strict) diaktifkan
 
-Each step represents a move towards a safer type-system, but not every project needs that level of verification.
+Setiap langkah mewakili gerakan menuju sistem tipe yang lebih aman, tetapi tidak setiap proyek membutuhkan tingkat verifikasi seperti itu.
 
-## TypeScript with JavaScript
+## TypeScript dengan JavaScript
 
-This is when you use an editor which uses TypeScript to provide tooling like auto-complete, jump to symbol and refactoring tools like rename.
-The [homepage](/) has a list of editors which have TypeScript plugins.
+Ini ketika editor-mu yang menggunakan Typescript untuk menyediakan tool, seperti auto-complete, jump to symbil, dan refactoring, misalnya penamaan ulang.
+Di [Homepage](/) tersedia daftar editor yang memiliki plugin Typescript.
 
-## Providing Type Hints in JS via JSDoc
+## Menyediakan Type Hints di JS melalui JSDoc
 
-In a `.js` file, types can often be inferred. When types can't be inferred, they can be specified using JSDoc syntax.
+Di file `.js`, type sering kali dapat diketahui. Namun ketika type tidak diketahui, mereka bisa ditentukan menggunakan sintaks JSDoc.
 
-JSDoc annotations come before a declaration will be used to set the type of that declaration. For example:
+Anotasi JSDoc diletakkan sebelum mendeklarasikan suatu hal. Seperti contoh berikut:
 
 ```js twoslash
 /** @type {number} */
@@ -35,12 +35,12 @@ x = 0; // OK
 x = false; // OK?!
 ```
 
-You can find the full list of supported JSDoc patterns [in JSDoc Supported Types](/docs/handbook/jsdoc-supported-types.html).
+Anda dapat menemukan daftar lengkap mengenai dukungan pola JSDoc [di Tipe-tipe yang didukung JSDoc](/docs/handbook/jsdoc-supported-types.html)
 
 ## `@ts-check`
 
-The last line of the previous code sample would raise an error in TypeScript, but it doesn't by default in a JS project.
-To enable errors in your JavaScript files add: `// @ts-check` to the first line in your `.js` files to have TypeScript raise it as an error.
+Baris terakhir dari contoh kode sebelumnya akan menimbulkan kesalahan dalam TypeScript, tetapi tidak secara default dalam proyek JS.
+Untuk mengaktifkan error dalam file JavaScript-mu, tambahkan: `// @ ts-check` ke baris pertama dalam file`.js` Anda agar TypeScript dapat memeriksa kesalahan.
 
 ```js twoslash
 // @ts-check
@@ -52,10 +52,10 @@ x = 0; // OK
 x = false; // Not OK
 ```
 
-If you have a lot of JavaScript files you want to add errors to then you can switch to using a [`jsconfig.json`](/docs/handbook/tsconfig-json.html).
-You can skip checking some files by adding a `// @ts-nocheck` comment to files.
+Jika anda memiliki banyak file Javascript yang ingin ditambahkan pemeriksaan error-nya, anda bisa beralhir menggunakan [`jsconfig.json`](/docs/handbook/tsconfig-json.html).
+Dengan begitu, anda tidak perlu menambahkan `// @ts-nocheck` di tiap file-nya.
 
-TypeScript may offer you errors which you disagree with, in those cases you can ignore errors on specific lines by adding `// @ts-ignore` or `// @ts-expect-error` on the preceding line.
+Typescript mungkin memberikan error yang kamu tidak sepakati. Pada kasus tersebut, anda bisa membiarkan error itu spesifik dibaris manapun dengan menambahkan `// @ts-ignore` atau `// @ts-expect-error`.
 
 ```js twoslash
 // @ts-check
@@ -67,4 +67,4 @@ x = 0; // OK
 x = false; // Not OK
 ```
 
-To learn more about how JavaScript is interpreted by TypeScript read [How TS Type Checks JS](/docs/handbook/type-checking-javascript-files.html)
+Untuk mempelajari lebih lanjut bagaimana Javascript diinterpretasi oleh Typescript, anda dapat membaca [Bagaimana TS Type Memeriksa JS](/docs/handbook/type-checking-javascript-files.html)
