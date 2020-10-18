@@ -6,17 +6,17 @@ oneline: A tutorial to understand how to create a small website with TypeScript
 translatable: true
 ---
 
-Mulai membangun aplikasi web sederhana dengan Typescript.
+Mulai membangun aplikasi web sederhana dengan TypeScript.
 
-## Memasang Typescript
+## Memasang TypeScript
 
-Berikut adalah 2 cara agar Typescript ada pada proyekmu:
+Berikut adalah 2 cara agar TypeScript ada pada proyekmu:
 
 - Melalui npm (package manager dari Node.js)
 - Dengan memasang plugin Visual Studio TypeScript
 
-Standar dari Visual Studio 2017 dan Visual Studio 2015 Update 3 telah menyertakan Typescript.
-Jika anda belum memasang Typescript dengan Visual Studio, anda masih bisa [mengunduhnya disini](/download).
+Standar dari Visual Studio 2017 dan Visual Studio 2015 Update 3 telah menyertakan TypeScript.
+Jika anda belum memasang TypeScript dengan Visual Studio, anda masih bisa [mengunduhnya disini](/download).
 
 Untuk pengguna npm:
 
@@ -26,7 +26,7 @@ Untuk pengguna npm:
 
 ## Membangun file TypeScript pertamamu
 
-Di editormu, ketik kode Javascript berikut pada file `greeter.ts`:
+Di editormu, ketik kode JavaScript berikut pada file `greeter.ts`:
 
 ```ts twoslash
 // @noImplicitAny: false
@@ -41,19 +41,19 @@ document.body.textContent = greeter(user);
 
 ## Mengkompilasi kodemu
 
-Kita menggunakan ekstensi `.ts`, tapi kode ini hanyalah Javascript.
+Kita menggunakan ekstensi `.ts`, tapi kode ini hanyalah JavaScript.
 Anda dapat menyalin/menempel ini langsung dari aplikasi JavaScript yang ada.
 
-Di command line, jalankan Typescript compiler:
+Di command line, jalankan TypeScript compiler:
 
 ```shell
 tsc greeter.ts
 ```
 
-Hasilnya akan menjadi file `greeter.js` yang berisi Javascript yang sama dengan yang anda masukkan.
+Hasilnya akan menjadi file `greeter.js` yang berisi JavaScript yang sama dengan yang anda masukkan.
 Kodenya telah berhasil menjalankannya menggunakan TypeScript di aplikasi JavaScript!
 
-Sekarang kita bisa melangkah lebih jauh tentang tool yang ditawarkan oleh Typescript.
+Sekarang kita bisa melangkah lebih jauh tentang tool yang ditawarkan oleh TypeScript.
 Tambahkan sebuah jenis anotasi `: string` ke argumen 'person' pada fungsi `greeter`, seperti berikut:
 
 ```ts twoslash
@@ -94,7 +94,7 @@ TypeScript akan memberi tahu Anda bahwa Anda telah memanggil fungsi ini dengan j
 Dalam kedua kasus, TypeScript dapat menawarkan analisis statis berdasarkan struktur kode Anda, dan jenis anotasi yang Anda berikan.
 
 Perhatikan ketika terjadi error, file `greeter.js` tetap dibuat.
-Anda bisa menggunakan Typescript bahkan jika terjadi error pada kodemu. Tapi pada kasus ini, Typescript memperingatkan bahwa kodemu akan bekerja tidak sesuai dengan ekspektasi.
+Anda bisa menggunakan TypeScript bahkan jika terjadi error pada kodemu. Tapi pada kasus ini, TypeScript memperingatkan bahwa kodemu akan bekerja tidak sesuai dengan ekspektasi.
 
 ## Interfaces
 
@@ -120,7 +120,7 @@ document.body.textContent = greeter(user);
 ## Kelas
 
 Terakhir, mari menambahkan penggunaan kelas pada contoh yang sedang kita kerjakan.
-Typescript mendukung fitur baru di Javascript, seperti dukungan untuk kelas berbasiskan pemrograman objek.
+TypeScript mendukung fitur baru di JavaScript, seperti dukungan untuk kelas berbasiskan pemrograman objek.
 
 Disini kita mulai dengan membuat kelas `Student` dengan konstruktor dan beberapa field publik.
 Perhatikan bahwa kelas dan interface saling bersinergi, sehingga memberikan kebebasan ke programmer untuk memutuskan level abstraksi yang tepat.
@@ -153,10 +153,10 @@ let user = new Student("Jane", "M.", "User");
 document.body.textContent = greeter(user);
 ```
 
-Jalankan ulang perintah `tsc greeter.ts` dan anda akan melihat kode Javascript-nya.
-Kelas pada Typescript hanyalah singkatan untuk object-oriented berbasiskan prototipe yang sama, yang sering digunakan di Javascript.
+Jalankan ulang perintah `tsc greeter.ts` dan anda akan melihat kode JavaScript-nya.
+Kelas pada TypeScript hanyalah singkatan untuk object-oriented berbasiskan prototipe yang sama, yang sering digunakan di JavaScript.
 
-## Menjalankan aplikasi web Typescript-mu
+## Menjalankan aplikasi web TypeScript-mu
 
 Sekarang ketik kode berikut di `greeter.html`:
 
@@ -172,16 +172,16 @@ Sekarang ketik kode berikut di `greeter.html`:
 </html>
 ```
 
-Buka `greeter.html` di browser untuk menjalankan aplikasi web Typescript-mu yang pertama!
+Buka `greeter.html` di browser untuk menjalankan aplikasi web TypeScript-mu yang pertama!
 
-Opsional: Buka `greeter.ts` di Visual Studio, atau salin kode ke Typescript playground.
+Opsional: Buka `greeter.ts` di Visual Studio, atau salin kode ke TypeScript playground.
 Anda dapat mengarahkan kursor ke identifier untuk melihat type mereka.
 Perhatikan bahwa dalam beberapa kasus, tipe ini disimpulkan secara otomatis untuk Anda.
 Ketik ulang baris terakhir, dan lihat daftar penyelesaian dan bantuan parameter berdasarkan jenis elemen DOM.
 Letakkan kursor Anda pada referensi ke fungsi greeter, dan tekan F12 untuk masuk ke definisinya.
 Perhatikan juga bahwa Anda dapat mengklik kanan pada simbol dan menggunakan refactoring untuk mengganti namanya.
 
-Jenis informasi yang disediakan bekerja sama dengan tool untuk memudahkan pekerjaan dengan aplikasi Javascript.
+Jenis informasi yang disediakan bekerja sama dengan tool untuk memudahkan pekerjaan dengan aplikasi JavaScript.
 Untuk informasi lebih lanjut tentang apa yang mungkin kita bisa lakukan dengan TypeScript, anda dapat melihat beberapa sample di situs ini.
 
 ![Visual Studio picture](/images/docs/greet_person.png)

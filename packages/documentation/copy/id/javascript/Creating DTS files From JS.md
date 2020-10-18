@@ -6,9 +6,9 @@ oneline: "How to add d.ts generation to JavaScript projects"
 translatable: true
 ---
 
-[Dengan Typescript 3.7](/docs/handbook/release-notes/typescript-3-7.html#--declaration-and---allowjs), Typescript menambahkan dukungan untuk menghasilkan file .d.ts dari Javascript menggunakan sintaks JSDoc.
+[Dengan TypeScript 3.7](/docs/handbook/release-notes/typescript-3-7.html#--declaration-and---allowjs), TypeScript menambahkan dukungan untuk menghasilkan file .d.ts dari JavaScript menggunakan sintaks JSDoc.
 
-Pengaturan ini berarti Anda memiliki editor yang mendukung Typescript tanpa memindahkan proyek anda ke Typescript, atau harus memelihara file .d.ts di basis kodemu.
+Pengaturan ini berarti Anda memiliki editor yang mendukung TypeScript tanpa memindahkan proyek anda ke TypeScript, atau harus memelihara file .d.ts di basis kodemu.
 TypeScript mendukung sebagian besar tag JSDoc, Anda bisa menemukannya [di referensi ini](/docs/handbook/type-checking-javascript-files.html#supported-jsdoc).
 
 ## Menyiapkan proyekmu untuk menggunakan file .d.ts
@@ -60,7 +60,7 @@ npx typescript src/**/*.js --declaration --allowJs --emitDeclarationOnly --outDi
 
 ## Menjalankan compiler
 
-Anda bisa mempelajari bagaimana melakukan ini di [halaman pemasangan](/download) Typescript kami.
+Anda bisa mempelajari bagaimana melakukan ini di [halaman pemasangan](/download) TypeScript kami.
 Anda perlu memastikan file-file ini disertakan dalam package Anda jika Anda memiliki file dalam `gitignore` proyek Anda.
 
 ## Meng-edit file package.json

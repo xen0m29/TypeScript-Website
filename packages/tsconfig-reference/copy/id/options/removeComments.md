@@ -1,9 +1,9 @@
 ---
 display: "Menghapus Komentar"
-oneline: "Menghapus Komentar di TypeScript sehingga tidak muncul di Javascript"
+oneline: "Menghapus Komentar di TypeScript sehingga tidak muncul di JavaScript"
 ---
 
-Menghapus semua komentar pada berkas Typescript pada saat mengonversi ke berkas Javascript. Pengaturan bawaannya adalah `false`
+Menghapus semua komentar pada berkas TypeScript pada saat mengonversi ke berkas JavaScript. Pengaturan bawaannya adalah `false`
 
 Sebagai contoh, ini adalah berkas TypeScript yang memiliki komentar JSDoc:
 
@@ -30,4 +30,4 @@ Tanpa menyetel `removeComments` atau menjadikannya sebagai `false`:
 export const helloWorldID = "Halo Dunia";
 ```
 
-Artinya, komentar anda akan muncul di kode Javascript
+Artinya, komentar anda akan muncul di kode JavaScript

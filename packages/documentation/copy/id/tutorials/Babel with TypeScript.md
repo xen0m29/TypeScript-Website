@@ -8,7 +8,7 @@ translatable: true
 
 ## Babel vs `tsc` untuk TypeScript
 
-Ketika membuat proyek Javascript modern, anda mungkin bertanya pada dirimu sendiri, apa cara yang benar untuk mengkonversi file-file dari TypeScript ke Javascript.
+Ketika membuat proyek JavaScript modern, anda mungkin bertanya pada dirimu sendiri, apa cara yang benar untuk mengkonversi file-file dari TypeScript ke JavaScript.
 
 Sering kali jawabannya adalah _"tergantung"_, atau _"seseorang mungkin telah memutuskan untukmu"_ bergantung pada proyeknya. Jika anda membangun proyekmu dengan framework yang sudah ada, seperti [tsdx](https://tsdx.io), [Angular](https://angular.io/), [NestJS](https://nestjs.com/) atau framework apapun yang disebutkan di [Getting Started](/docs/home).
 
@@ -38,7 +38,7 @@ Untuk mengatasi hal tersebut, Anda perlu melakukan set up perintah untuk memerik
   // Memastikan bahwa file-file .d.ts dibuat oleh tsc, bukan file .js
   "declaration": true,
   "emitDeclarationOnly": true,
-  // Memastikan bahwa Babel secara aman dapat men-transpile file-file di proyek Typescript
+  // Memastikan bahwa Babel secara aman dapat men-transpile file-file di proyek TypeScript
   "isolatedModules": true
 }
 ```

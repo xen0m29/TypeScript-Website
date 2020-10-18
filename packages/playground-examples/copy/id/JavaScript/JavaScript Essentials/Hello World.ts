@@ -17,7 +17,7 @@ const halo = "Halo";
 
 const dunia = "Dunia";
 
-// Anda dapat melihat bagaimana kompilator Typescript membuat
+// Anda dapat melihat bagaimana kompilator TypeScript membuat
 // perubahan kecil pada kode, dengan mengonversi "const"
 // menjadi "var". Ini salah satu dari sekian banyak
 // hal-hal yang dilakukan TypeScript agar dapat dijalankan

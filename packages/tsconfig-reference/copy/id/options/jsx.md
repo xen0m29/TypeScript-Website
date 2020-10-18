@@ -3,7 +3,7 @@ display: "JSX"
 oneline: "Mengatur bagaimana JSX dihasilkan"
 ---
 
-Mengatur bagaimana konstruksi JSX dihasilkan di dalam file Javascript.
+Mengatur bagaimana konstruksi JSX dihasilkan di dalam file JavaScript.
 Ini hanya akan berpengaruh pada keluaran file JS yang dimulai di file `.tsx`.
 
 - `react`: Menghasilkan file `.js` dengan JSX yang diubah seperti pemanggilan `React.createElement`

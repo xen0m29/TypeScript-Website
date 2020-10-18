@@ -18,8 +18,8 @@ Setiap langkah mewakili gerakan menuju sistem tipe yang lebih aman, tetapi tidak
 
 ## TypeScript dengan JavaScript
 
-Ini ketika editor-mu yang menggunakan Typescript untuk menyediakan tool, seperti auto-complete, jump to symbil, dan refactoring, misalnya penamaan ulang.
-Di [Homepage](/) tersedia daftar editor yang memiliki plugin Typescript.
+Ini ketika editor-mu yang menggunakan TypeScript untuk menyediakan tool, seperti auto-complete, jump to symbil, dan refactoring, misalnya penamaan ulang.
+Di [Homepage](/) tersedia daftar editor yang memiliki plugin TypeScript.
 
 ## Menyediakan Type Hints di JS melalui JSDoc
 
@@ -52,10 +52,10 @@ x = 0; // OK
 x = false; // Not OK
 ```
 
-Jika anda memiliki banyak file Javascript yang ingin ditambahkan pemeriksaan error-nya, anda bisa beralhir menggunakan [`jsconfig.json`](/docs/handbook/tsconfig-json.html).
+Jika anda memiliki banyak file JavaScript yang ingin ditambahkan pemeriksaan error-nya, anda bisa beralhir menggunakan [`jsconfig.json`](/docs/handbook/tsconfig-json.html).
 Dengan begitu, anda tidak perlu menambahkan `// @ts-nocheck` di tiap file-nya.
 
-Typescript mungkin memberikan error yang kamu tidak sepakati. Pada kasus tersebut, anda bisa membiarkan error itu spesifik dibaris manapun dengan menambahkan `// @ts-ignore` atau `// @ts-expect-error`.
+TypeScript mungkin memberikan error yang kamu tidak sepakati. Pada kasus tersebut, anda bisa membiarkan error itu spesifik dibaris manapun dengan menambahkan `// @ts-ignore` atau `// @ts-expect-error`.
 
 ```js twoslash
 // @ts-check
@@ -67,4 +67,4 @@ x = 0; // OK
 x = false; // Not OK
 ```
 
-Untuk mempelajari lebih lanjut bagaimana Javascript diinterpretasi oleh Typescript, anda dapat membaca [Bagaimana TS Type Memeriksa JS](/docs/handbook/type-checking-javascript-files.html)
+Untuk mempelajari lebih lanjut bagaimana JavaScript diinterpretasi oleh TypeScript, anda dapat membaca [Bagaimana TS Type Memeriksa JS](/docs/handbook/type-checking-javascript-files.html)

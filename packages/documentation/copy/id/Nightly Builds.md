@@ -6,7 +6,7 @@ oneline: How to use a nightly build of TypeScript
 translatable: true
 ---
 
-Nightly build dari branch [master Typescript](https://github.com/Microsoft/TypeScript/tree/master) diterbitkan pada tengah malam, di zona waktu PST ke npm.
+Nightly build dari branch [master TypeScript](https://github.com/Microsoft/TypeScript/tree/master) diterbitkan pada tengah malam, di zona waktu PST ke npm.
 Berikut adalah cara untuk mendapatkan versi ini dan cara menggunakannya.
 
 ## Menggunakan npm
@@ -71,7 +71,7 @@ VSDevMode.ps1 12 -tsScript <path ke folder-mu>/node_modules/typescript/lib
 
 Masuk ke `Preferences` > `Languages & Frameworks` > `TypeScript`:
 
-> Typescript Version: Jika anda memasangnya dengan npm, maka akan ada di `/usr/local/lib/node_modules/typescript/lib`
+> TypeScript Version: Jika anda memasangnya dengan npm, maka akan ada di `/usr/local/lib/node_modules/typescript/lib`
 
 ### IntelliJ IDEA (Windows)
 

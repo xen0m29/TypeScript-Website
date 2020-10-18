@@ -28,7 +28,7 @@ Perhatikan semua tag yang tidak secara eksplisit dicantumkan di bawah (seperti `
 Artinya biasanya sama, atau superset, dari arti tag yang diberikan di [jsdoc.app](https://jsdoc.app).
 Kode dibawah mendeskripsikan perbedaan dan beberapa contoh dari setiap tag-nya.
 
-**Catat:** Anda bisa menggunakan [playground untuk mengeksplor dukungan JSDoc](/play?useJavaScript=truee=4#example/jsdoc-support).
+**Catatan:** Anda bisa menggunakan [playground untuk mengeksplor dukungan JSDoc](/play?useJavaScript=truee=4#example/jsdoc-support).
 
 ## `@type`
 
@@ -441,7 +441,7 @@ c.size;
 var result = C(1);
 ```
 
-> Catat: Pesan error hanya tampil di basis kode JS dengan [JSConfig](/docs/handbook/tsconfig-json.html) dan [`checkJS`](/tsconfig#checkJs) yang diaktifkan.
+> Catatan: Pesan error hanya tampil di basis kode JS dengan [JSConfig](/docs/handbook/tsconfig-json.html) dan [`checkJS`](/tsconfig#checkJs) yang diaktifkan.
 
 Dengan `@constructor`, `this` diperiksa didalam fungsi konstruktor `C`, jadi anda akan mendapatkan saran untuk method `initialize` dan sebuah error jika anda memasukkan sebuah angka. Editor-mu mungkin akan menampilkan peringatan jika memanggil `C` daripada mengkonstruksikannya.
 
@@ -463,7 +463,7 @@ function callbackForLater(e) {
 
 ## `@extends`
 
-Ketika kelas Javascript memperluas _base class_, tidak ada tempat untuk menentukan seharusnya menggunakan parameter type yang seperti apa. Tag `@extends` menyediakan tempat untuk parameter jenis itu:
+Ketika kelas JavaScript memperluas _base class_, tidak ada tempat untuk menentukan seharusnya menggunakan parameter type yang seperti apa. Tag `@extends` menyediakan tempat untuk parameter jenis itu:
 
 ```js twoslash
 /**
@@ -479,7 +479,7 @@ Perhatikan bahwa `@extends` hanya berfungsi dengan kelas. Saat ini, tidak ada ca
 
 ## `@enum`
 
-Tag `@enum` memungkinkan Anda membuat literal objek yang type anggotanya spesifik. Tidak seperti kebanyakan literal objek di Javascript, ini tidak mengizinkan anggota lain.
+Tag `@enum` memungkinkan Anda membuat literal objek yang type anggotanya spesifik. Tidak seperti kebanyakan literal objek di JavaScript, ini tidak mengizinkan anggota lain.
 
 ```js twoslash
 /** @enum {number} */

@@ -8,9 +8,9 @@ translatable: true
 
 ## Pengenalan
 
-Dengan pengenalan Kelas-kelas yang ada di Typescript dan ES6, sekarang ada skenario tertentu yang memerlukan fitur tambahan untuk mendukung anotasi atau modifikasi kelas dan anggota kelas.
+Dengan pengenalan Kelas-kelas yang ada di TypeScript dan ES6, sekarang ada skenario tertentu yang memerlukan fitur tambahan untuk mendukung anotasi atau modifikasi kelas dan anggota kelas.
 Decorators menyediakan cara untuk menambahkan anotasi-anotasi dan sebuah sintaks pemrogragaman meta untuk deklarasi kelas dan anggota kelas.
-Decorators ada pada [stage 2 proposal](https://github.com/tc39/proposal-decorators) untuk Javascript dan juga tersedia pada Typescript sebagai fitur eksperimental.
+Decorators ada pada [stage 2 proposal](https://github.com/tc39/proposal-decorators) untuk JavaScript dan juga tersedia pada TypeScript sebagai fitur eksperimental.
 
 > CATATAN&emsp; Decorators adalah fitur eksperimental yang mungkin dapat berubah ketika dirilis nanti.
 
@@ -263,7 +263,7 @@ Sebuah _Accessor Decorator_ dideklarasikan tepat sebelum sebuah deklarasi akseso
 Decorator aksesor diterapkan ke _Property Descriptor_ untuk aksesor dan dapat digunakan untuk mengamati, memodifikasi, atau mengganti definisi aksesor.
 Decorator aksesor tidak dapat digunakan dalam deklarasi file, atau dalam konteks ambien lainnya (seperti dalam kelas `declare`).
 
-> CATATAN&emsp; Typescript melarang penerapan decorator ke aksesor `get` dan `set` untuk single member.
+> CATATAN&emsp; TypeScript melarang penerapan decorator ke aksesor `get` dan `set` untuk single member.
 > Sebaliknya, semua decorator untuk anggota harus diterapkan ke pengakses pertama yang ditentukan dalam urutan dokumen.
 > Ini karena dekorator berlaku untuk _Property Descriptor_, yang menggabungkan aksesor `get` dan`set`, bukan setiap deklarasi secara terpisah.
 
@@ -326,7 +326,7 @@ Ekspresi untuk property decorator akan dipanggil sebagai fungsi pada waktu prose
 1. Dapat berupa fungsi konstruktor kelas untuk anggota statis, atau prototipe kelas untuk anggota instance.
 2. Nama anggota.
 
-> CATATAN&emsp; _Property Descriptior_ tidak menyediakan sebuah argumen untuk property decorator karena bergantung tentang bagaimana property decorator diinisialisasi pada Typescript.
+> CATATAN&emsp; _Property Descriptior_ tidak menyediakan sebuah argumen untuk property decorator karena bergantung tentang bagaimana property decorator diinisialisasi pada TypeScript.
 > Ini karena, saat ini tidak ada mekanisme untuk mendeskripsikan sebuah instance property ketika mendefinisikan anggota dari sebuah prototipe, dan tidak ada cara untuk mengamati atau memodifikasi initializer untuk property. Dan nilai kembalian juga akan dibiarkan.
 > Sehingga, sebuah property decorator hanya bisa digunakan untuk mengamati property dengan nama yang spesifik, yang telah dideklarasikan pada sebuah kelas.
 
@@ -463,7 +463,7 @@ Decorator `@validate` kemudian akan memvalidasi semua argumen yang ada, sebelum 
 ## Metadata
 
 Beberapa contoh menggunakan pustaka `reflect-metadata` yang menambahkan polyfill untuk [API metadata eksperimental](https://github.com/rbuckton/ReflectDecorators).
-Pustaka ini belum menjadi bagian dari standar ECMAScript (Javascript).
+Pustaka ini belum menjadi bagian dari standar ECMAScript (JavaScript).
 Namun, ketika decorator secara resmi diadopsi sebagai bagian dari standar ECMAScript, ekstensi ini akan diusulkan untuk diadopsi.
 
 Anda dapat memasang pustaka ini melalui npm:
@@ -543,7 +543,7 @@ function validate<T>(
 ```
 
 Compiler TypeScript akan memasukkan informasi jenis design-time menggunakan decorator `@Reflect.metadata`.
-Anda dapat menganggapnya setara dengan Typescript berikut:
+Anda dapat menganggapnya setara dengan TypeScript berikut:
 
 ```ts
 class Line {

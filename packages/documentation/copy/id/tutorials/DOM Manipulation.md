@@ -14,7 +14,7 @@ Dalam 20+ tahun sejak standarisasi, JavaScript telah berkembang pesat. Meskipun 
 
 Situs web terdiri dari dokumen HTML dan/atau XML. Dokumen-dokumen ini statis, tidak berubah. _Document Object Model (DOM)_ adalah antarmuka pemrograman yang diterapkan oleh browser untuk membuat situs web statis berfungsi. API DOM dapat digunakan untuk mengubah struktur dokumen, style, dan konten. API ini sangat kuat sehingga framework frontend yang tak terhitung jumlahnya (jQuery, React, Angular, dll.) telah dikembangkan di sekitarnya untuk membuat situs web dinamis lebih mudah dikembangkan.
 
-TypeScript adalah superset dari JavaScript, dan Typescript dilengkapi dengan definisi tipe untuk DOM API. Secara standar, definisi ini sudah tersedia dalam proyek TypeScript. Dari 20.000+ baris definisi di _lib.dom.d.ts_, satu yang menonjol di antara yang lain: `HTMLElement`. Jenis ini adalah hal penting untuk manipulasi DOM dengan TypeScript.
+TypeScript adalah superset dari JavaScript, dan TypeScript dilengkapi dengan definisi tipe untuk DOM API. Secara standar, definisi ini sudah tersedia dalam proyek TypeScript. Dari 20.000+ baris definisi di _lib.dom.d.ts_, satu yang menonjol di antara yang lain: `HTMLElement`. Jenis ini adalah hal penting untuk manipulasi DOM dengan TypeScript.
 
 > Anda bisa mengeksplor source code [Definisi tipe DOM](https://github.com/microsoft/TypeScript/blob/master/lib/lib.dom.d.ts)
 
